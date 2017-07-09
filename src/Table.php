@@ -60,7 +60,7 @@ class Table extends \Swoole\Table
             {
                 case 'mysql':
                     $this->_type = $p['scheme'];
-                    list($db, $table) = explode('/', trim($p['path']));
+                    list($db, $table) = explode('/', ltrim($p['path'],'/'));
                     $p['db']          = $db;
                     $p['table']       = $table ?: 'memory_table';
                     $this->_column    = [];
